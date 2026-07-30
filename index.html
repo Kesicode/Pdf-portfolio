@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>K S Kashinadh - Engineering Portfolio</title>
+  <meta name="description" content="Engineering portfolio of K S Kashinadh - Embedded Systems, PCB Design, Robotics, IoT."/>
+  <meta name="author" content="K S Kashinadh"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--white:#fff;--black:#111;--g4:#666;--g6:#999;--g8:#ccc;--g9:#E5E7EB;--g95:#F3F4F6;--g97:#F9FAFB;--accent:#2563EB;--apale:#EFF6FF;--amid:#BFDBFE;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--r:10px;--rsm:6px;--pw:794px;--ph:1123px;--mg:56px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    a{color:inherit;text-decoration:none}img{display:block}
+    body{background:#dcdcdc;font-family:var(--font);color:var(--black);-webkit-font-smoothing:antialiased}
+    .portfolio{display:flex;flex-direction:column;align-items:center;gap:28px;padding:48px 24px}
+    .page{width:var(--pw);min-height:var(--ph);background:var(--white);position:relative;overflow:hidden;box-shadow:0 6px 40px rgba(0,0,0,.14),0 1px 4px rgba(0,0,0,.08)}
+    .pi{padding:var(--mg);min-height:var(--ph);display:flex;flex-direction:column}
+    .rh{display:flex;align-items:center;justify-content:space-between;padding-bottom:20px;margin-bottom:36px;border-bottom:1px solid var(--g9)}
+    .rn{font-size:11px;font-weight:500;color:var(--g6)}
+    .rnum{font-size:11px;font-weight:500;color:var(--g8);letter-spacing:.5px}
+    .ey{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g6)}
+    .eyb{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+    .td{font-size:44px;font-weight:800;letter-spacing:-1.5px;line-height:1.05;color:var(--black)}
+    .th2{font-size:22px;font-weight:700;letter-spacing:-.4px;line-height:1.25;color:var(--black)}
+    .tb{font-size:13.5px;font-weight:400;line-height:1.75;color:var(--g4)}
+    .tsm{font-size:11.5px;font-weight:400;line-height:1.65;color:var(--g6)}
+    .tc{font-size:10.5px;font-weight:500;color:var(--g6);letter-spacing:.3px}
+    .hr{height:1px;background:var(--g9)}
+    .chip{display:inline-flex;align-items:center;height:24px;padding:0 9px;background:var(--g95);border:1px solid var(--g9);border-radius:20px;font-size:10.5px;font-weight:500;color:var(--g4);white-space:nowrap}
+    .cb{background:var(--apale);border-color:var(--amid);color:var(--accent)}
+    .co{background:#FFF7ED;border-color:#FED7AA;color:#B45309}
+    .cw{display:flex;flex-wrap:wrap;gap:5px}
+    /* COVER */
+    .cover{display:flex;min-height:var(--ph);position:relative}
+    .cvl{width:52%;padding:var(--mg);display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:1}
+    .cvr{width:48%;position:relative;background:var(--g95)}
+    .cvr img{width:100%;height:100%;object-fit:cover;object-position:center 10%}
+    .cvr::before{content:'';position:absolute;inset:0 auto 0 0;width:2px;background:rgba(255,255,255,.6);z-index:2}
+    .cv-header{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+    .cv-brand{font-size:18px;font-weight:600;letter-spacing:-0.2px;color:var(--black);display:flex;align-items:center;justify-content:space-between}
+    .cv-portfolio-tag{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--g6);display:inline-flex;align-items:center;gap:6px}
+    .cvdot{width:6px;height:6px;background:var(--accent);border-radius:50%}
+    .cvname{font-size:50px;font-weight:800;letter-spacing:-2.2px;line-height:0.98;color:var(--black);margin-bottom:44px}
+    .cvname-amp{font-weight:300;color:var(--accent)}
+    .cvspecs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:44px}
+    .cvspec-pill{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;background:var(--g97);border:1px solid var(--g9);border-radius:20px;font-size:11px;font-weight:500;color:var(--g4)}
+    .cvspec-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;opacity:0.85}
+    .cvtag{font-size:13.5px;line-height:1.7;color:var(--g4);max-width:320px;font-weight:400}
+    .cv-trace-bg{position:absolute;top:20px;right:10px;width:220px;height:300px;pointer-events:none;z-index:0;opacity:0.75}
+    .cvsoc{display:flex;flex-direction:column;gap:6px}
+    .soc{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--g4)}
+    .soc:hover{color:var(--accent)}
+    .soc svg{width:14px;height:14px;flex-shrink:0}
+    /* ABOUT */
+    .abg{display:grid;grid-template-columns:200px 1fr;gap:52px;flex:1}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+    .fact{padding:12px 14px;border:1px solid var(--g9);border-radius:var(--rsm);background:var(--g97)}
+    .fl{font-size:9.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--g8);margin-bottom:4px}
+    .fv{font-size:12.5px;font-weight:600;color:var(--black);line-height:1.3}
+    .fvb{font-size:24px;font-weight:800;letter-spacing:-.5px;color:var(--accent)}
+    .fs2{grid-column:span 2}
+    .abp{display:flex;flex-direction:column;gap:26px}
+    .bql{border-left:2px solid var(--accent);padding:2px 0 2px 16px}
+    /* EXPERTISE */
+    .exg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .exc{border:1px solid var(--g9);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:16px}
+    .excat{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--g8)}
+    .ext{font-size:17px;font-weight:700;letter-spacing:-.3px;color:var(--black)}
+    /* PROJECTS */
+    .pl{display:flex;flex-direction:column;gap:14px;flex:1}
+    .pc{display:grid;grid-template-columns:148px 1fr;gap:18px;border:1px solid var(--g9);border-radius:var(--r);padding:16px;align-items:start}
+    .pt{height:94px;border-radius:var(--rsm);overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .pb{display:flex;flex-direction:column;gap:7px}
+    .ptop{display:flex;align-items:center;gap:8px}
+    .pn{font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--black)}
+    .tm{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:20px;font-size:9.5px;font-weight:600;white-space:nowrap}
+    .pd{font-size:12px;line-height:1.65;color:var(--g4)}
+    /* PCB */
+    .pcbg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+    .pcbc{border:1px solid var(--g9);border-radius:var(--r);overflow:hidden}
+    .pcbi{height:188px;background:var(--g95);overflow:hidden}
+    .pcbi img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .pcbif{padding:10px 14px 12px;border-top:1px solid var(--g9)}
+    .pcbt{font-size:12px;font-weight:700;color:var(--black)}
+    .pcbs{font-size:10px;color:var(--g6);margin-top:2px}
+    /* LEADERSHIP */
+    .l2c{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-bottom:32px}
+    .tl{position:relative;padding-left:26px}
+    .tl::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--g9)}
+    .tli{position:relative;padding-bottom:28px}
+    .tli:last-child{padding-bottom:0}
+    .tld{position:absolute;left:-23px;top:7px;width:9px;height:9px;border-radius:50%;border:2px solid var(--g8);background:var(--white)}
+    .tlda{border-color:var(--accent);background:var(--accent)}
+    .tlp{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--g8);margin-bottom:4px}
+    .tlr{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--black);margin-bottom:2px}
+    .tlra{color:var(--accent)}
+    .tlo{font-size:12.5px;color:var(--g4);margin-bottom:8px}
+    .ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .ac{border:1px solid var(--g9);border-radius:var(--rsm);padding:10px 12px}
+    .act{font-size:12.5px;font-weight:700;color:var(--black);margin-bottom:5px}
+    .acd{font-size:11px;line-height:1.6;color:var(--g4)}
+    /* BEYOND */
+    .byg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .bcard{border:1px solid var(--g9);border-radius:var(--r);padding:10px 14px}
+    .bcard-h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .bico{width:30px;height:30px;border-radius:6px;background:var(--g95);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bico svg{width:15px;height:15px;color:var(--g6)}
+    .bt{font-size:13.5px;font-weight:700;color:var(--black);letter-spacing:-.2px;line-height:1.2}
+    .bd{font-size:11.5px;line-height:1.65;color:var(--g4)}
+    /* CONTACT */
+    .conp{display:flex;min-height:var(--ph)}
+    .conl{width:40%;position:relative;background:var(--g95);overflow:hidden;flex-shrink:0}
+    .conl img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+    .conov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,15,.55) 0%,transparent 55%);pointer-events:none}
+    .conlb{position:absolute;bottom:28px;left:24px}
+    .conlb p:first-child{font-size:14px;font-weight:700;color:rgba(255,255,255,.95)}
+    .conlb p:last-child{font-size:11px;color:rgba(255,255,255,.55);margin-top:3px}
+    .conr{width:60%;padding:var(--mg);display:flex;flex-direction:column;justify-content:space-between}
+    .ci{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--g95)}
+    .ci:last-child{border-bottom:none}
+    .ciic{width:34px;height:34px;border-radius:var(--rsm);background:var(--g95);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .ciic svg{width:14px;height:14px;color:var(--g4)}
+    .cil{font-size:9.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--g8);margin-bottom:3px}
+    .civ{font-size:13px;font-weight:500;color:var(--black)}
+    .civ:hover{color:var(--accent)}
+    .qrb{width:76px;height:76px;border:1px solid var(--g9);border-radius:var(--rsm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:var(--white)}
+    @media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:white}.portfolio{padding:0;gap:0}.page,.cover,.conp{width:210mm;min-height:297mm;box-shadow:none;page-break-after:always;break-after:page}}
+  </style>
+</head>
+<body>
+<div class="portfolio">
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+<div class="cvl">
+  <!-- Subtle Circuit Trace Background Accent -->
+  <svg class="cv-trace-bg" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 0V60L70 110H150L180 140V240" stroke="#111111" stroke-width="1" stroke-dasharray="2 3" opacity="0.08"/>
+    <circle cx="70" cy="110" r="2.5" fill="#2563EB" opacity="0.4"/>
+    <circle cx="150" cy="110" r="2.5" fill="#111111" opacity="0.2"/>
+    <path d="M180 180H200" stroke="#111111" stroke-width="1" opacity="0.08"/>
+    <circle cx="180" cy="180" r="2" fill="#111111" opacity="0.2"/>
+    <path d="M0 160H40L70 190V280" stroke="#2563EB" stroke-width="1" stroke-dasharray="3 3" opacity="0.08"/>
+    <circle cx="40" cy="160" r="2.5" fill="#2563EB" opacity="0.35"/>
+  </svg>
+
+  <div style="position:relative;z-index:1">
+    <div class="cv-header">
+      <div class="cv-brand">
+        <span>K S Kashinadh</span>
+        <span class="cv-portfolio-tag"><span class="cvdot"></span>Portfolio '26</span>
+      </div>
+      <div class="hr"></div>
+    </div>
+
+    <h1 class="cvname">
+      Engineering<br>
+      Hardware <span class="cvname-amp">&amp;</span><br>
+      Software
+    </h1>
+
+
+    <div class="cvspecs">
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>Embedded Systems</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>PCB Design</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>Robotics</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>IoT</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>Electronics</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>Full-Stack Development</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>UI/UX</span>      
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>AI Integration</span>
+      <span class="cvspec-pill"><span class="cvspec-dot"></span>Intelligent Automation</span>
+      
+    </div> 
+
+    <p class="cvtag">Designing intelligent embedded systems, custom PCB hardware, and reliable automation solutions that transform ideas into real-world products.</p>
+  </div>
+
+  <div style="position:relative;z-index:1">
+    <div class="hr" style="margin-bottom:20px"></div>
+    <div class="cvsoc">
+      <a href="https://github.com/Kesicode" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>github.com/Kesicode</a>
+      <a href="https://www.linkedin.com/in/k-s-kashinadh" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/k-s-kashinadh</a>
+      <a href="mailto:kskashinadh4@gmail.com" class="soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>kskashinadh4@gmail.com</a>
+    </div>
+  </div>
+</div>
+<div class="cvr"><img src="assets/portrait.jpg" alt="K S Kashinadh"/></div>
+</div>
+
+<!-- PAGE 2: ABOUT -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">02 / 08</span></div>
+<div class="abg">
+  <div>
+    <p class="eyb">About</p>
+    <div class="hr" style="margin:14px 0 0"></div>
+    <div class="facts">
+      <div class="fact"><p class="fl">Year</p><p class="fv">3rd Year</p></div>
+      <div class="fact"><p class="fl">CGPA</p><p class="fv">7.77</p></div>
+      <div class="fact fs2"><p class="fl">Institution</p><p class="fv">College of Engineering Kidangoor</p></div>
+      <div class="fact fs2"><p class="fl">Degree</p><p class="fv">B.Tech Electronics &amp; Communication Engineering</p></div>
+      <div class="fact fs2"><p class="fl">IEEE Role</p><p class="fv">IAS Chairperson</p></div>
+      <div class="fact"><p class="fl">PCB Designs</p><p class="fvb">20+</p></div>
+      <div class="fact"><p class="fl">Graduating</p><p class="fv">2028</p></div>
+      <div class="fact fs2"><p class="fl">Location</p><p class="fv">Kottayam, Kerala, India</p></div>
+    </div>
+  </div>
+  <div class="abp">
+    <div>
+      <p class="ey" style="margin-bottom:8px">Introduction</p>
+      <h2 class="th2" style="margin-bottom:12px;max-width:320px;line-height:1.3">Building intelligent electronics that solve real-world engineering challenges.</h2>
+      <p class="tb">I am a third-year Electronics and Communication Engineering student with a focused interest in embedded systems, custom PCB hardware, robotics, and IoT. My work spans the full hardware stack from schematic design and PCB layout to firmware development and system integration.</p>
+    </div>
+    <div>
+      <p class="ey" style="margin-bottom:8px">Why I Build</p>
+      <p class="tb">I enjoy building technology that bridges hardware, firmware, and software to solve practical engineering problems. Every project is an opportunity to learn, iterate, and create solutions that are reliable, scalable, and meaningful.</p>
+    </div>
+    <div>
+      <p class="ey" style="margin-bottom:8px">Engineering Focus</p>
+      <p class="tb">Most of my work centers on designing custom development boards and embedded solutions using STM32, ESP32, and RP2040 microcontrollers. I design boards in KiCad from single-layer breakouts to multi-layer development platforms and write the firmware that runs on them.</p>
+    </div>
+    <div>
+      <p class="ey" style="margin-bottom:8px">Beyond Hardware</p>
+      <p class="tb">I also enjoy UI/UX design, web development, and product thinking. I believe strong engineering combines technical precision with thoughtful user experience.</p>
+    </div>
+    <div>
+      <p class="ey" style="margin-bottom:10px">Career Objective</p>
+      <div class="bql"><p class="tb" style="font-style:italic;font-size:13px">To become a skilled embedded systems and hardware engineer capable of designing intelligent electronics products, reliable embedded platforms, and innovative automation systems while continuously learning emerging technologies.</p></div>
+    </div>
+  </div>
+</div>
+</div></div>
+
+<!-- PAGE 3: EXPERTISE -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">03 / 08</span></div>
+<div style="margin-bottom:28px"><p class="ey" style="margin-bottom:8px">Skills and Technologies</p><h2 class="td">Engineering<br>Expertise</h2></div>
+<div class="exg">
+  <div class="exc"><div><p class="excat">Hardware</p><p class="ext" style="margin-top:3px">Embedded Systems</p></div><div class="cw"><span class="chip cb">STM32</span><span class="chip cb">ESP32</span><span class="chip cb">RP2040</span><span class="chip cb">Arduino</span><span class="chip cb">8051</span><span class="chip">Embedded C</span><span class="chip">Embedded C++</span><span class="chip">FreeRTOS</span><span class="chip">Firmware Dev</span><span class="chip">UART</span><span class="chip">SPI</span><span class="chip">I2C</span><span class="chip">CAN</span><span class="chip">GPIO</span><span class="chip">ADC</span><span class="chip">PWM</span></div></div>
+  <div class="exc"><div><p class="excat">Hardware</p><p class="ext" style="margin-top:3px">PCB Design</p></div><div class="cw"><span class="chip cb">KiCad</span><span class="chip cb">EasyEDA</span><span class="chip">Schematic Design</span><span class="chip">PCB Layout</span><span class="chip">Multi-layer PCB</span><span class="chip">Power Electronics</span><span class="chip">Circuit Debugging</span><span class="chip">Hardware Prototyping</span><span class="chip">Sensor Integration</span><span class="chip">Gerber Generation</span><span class="chip">DRC and ERC</span><span class="chip">Signal Integrity</span></div></div>
+  <div class="exc"><div><p class="excat">Electronics</p><p class="ext" style="margin-top:3px">Analog and Digital</p></div><div class="cw"><span class="chip">Analog Electronics</span><span class="chip">Digital Electronics</span><span class="chip">Power Supply Design</span><span class="chip">Motor Control</span><span class="chip">Signal Processing</span><span class="chip">Communication Interfaces</span><span class="chip">Sensor Integration</span><span class="chip">Prototyping</span></div></div>
+  <div class="exc"><div><p class="excat">Software and Tools</p><p class="ext" style="margin-top:3px">Development</p></div><div class="cw"><span class="chip cb">Python</span><span class="chip cb">React</span><span class="chip cb">Next.js</span><span class="chip">JavaScript</span><span class="chip">HTML and CSS</span><span class="chip">Firebase</span><span class="chip">Supabase</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">PlatformIO</span><span class="chip">VS Code</span><span class="chip">UI/UX Design</span><span class="chip">Product Design</span></div></div>
+  <div class="exc" style="grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; padding: 20px 24px; margin-top: 12px">
+    <div><p class="excat">Milestones</p><p class="ext" style="margin-top:3px">Achievements</p></div>
+    <div class="cw"><span class="chip co">Startup</span><span class="chip co">Hackathons</span><span class="chip co">Bootcamps</span><span class="chip co">Competitions</span><span class="chip co">Speaker Roles</span></div>
+  </div>
+</div>
+</div></div>
+
+<!-- PAGE 4: PROJECTS -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">04 / 08</span></div>
+<div style="margin-bottom:22px"><p class="ey" style="margin-bottom:8px">Work</p><h2 class="td">Selected<br>Engineering Projects</h2></div>
+<div class="pl">
+  <div class="pc">
+    <div class="pt" style="background:#E8F2E8"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3D8B5A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div class="pb"><div class="ptop"><span class="pn">AgriGuard</span><span class="tm" style="background:#E8F2E8;color:#2D6A4F;border:1px solid #C8E6C9">IoT Wearable</span></div><p class="pd">Smart Livestock Health Monitoring System. A wearable embedded solution designed to monitor livestock health using sensors, GPS, and LoRa communication. Built for continuous real-time monitoring with cloud connectivity.</p><div class="cw"><span class="chip">ESP32</span><span class="chip">PCB Design</span><span class="chip">GPS</span><span class="chip">LoRa</span><span class="chip">Embedded C</span><span class="chip">IoT</span></div></div>
+  </div>
+  <div class="pc">
+    <div class="pt" style="background:#EFF6FF"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="pb"><div class="ptop"><span class="pn">FlowRoute</span><span class="tm" style="background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE">Web App</span></div><p class="pd">AI-assisted route planning platform that generates intelligent travel itineraries with a modern, seamless user experience. Built with Next.js and Firebase.</p><div class="cw"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">AI</span><span class="chip">Firebase</span><span class="chip">UI/UX</span></div></div>
+  </div>
+  <div class="pc">
+    <div class="pt" style="background:#F3F0FF"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+    <div class="pb"><div class="ptop"><span class="pn">Line Follower Robot</span><span class="tm" style="background:#F3F0FF;color:#5B21B6;border:1px solid #DDD6FE">Robotics</span></div><p class="pd">Autonomous robot capable of accurately following paths using IR sensors and embedded motor control. Custom PCB designed for the sensor array and motor driver integration.</p><div class="cw"><span class="chip">ESP32</span><span class="chip">Embedded C</span><span class="chip">Motor Drivers</span><span class="chip">PCB Design</span><span class="chip">IR Sensors</span></div></div>
+  </div>
+  <div class="pc">
+    <div class="pt" style="background:#FFF7ED"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg></div>
+    <div class="pb"><div class="ptop"><span class="pn">Obstacle Avoiding Robot</span><span class="tm" style="background:#FFF7ED;color:#B45309;border:1px solid #FED7AA">Robotics</span></div><p class="pd">Autonomous robotic platform detecting and navigating around obstacles using ultrasonic sensing. System status displayed on an integrated OLED display in real time.</p><div class="cw"><span class="chip">Arduino</span><span class="chip">Ultrasonic Sensor</span><span class="chip">OLED</span><span class="chip">Embedded C</span></div></div>
+  </div>
+  <div class="pc">
+    <div class="pt" style="background:#F0FDF4"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="8" y1="3" x2="8" y2="21"/></svg></div>
+    <div class="pb"><div class="ptop"><span class="pn">Smart Vending Machine</span><span class="tm" style="background:#F0FDF4;color:#14532D;border:1px solid #BBF7D0">Automation</span></div><p class="pd">Prototype automated vending system integrating sensors, servo control, and mechanical automation. Built with custom embedded PCB and complete firmware from scratch.</p><div class="cw"><span class="chip">Arduino</span><span class="chip">Embedded C</span><span class="chip">Servo Motors</span><span class="chip">PCB Design</span></div></div>
+  </div>
+</div>
+</div></div>
+
+<!-- PAGE 5: PCB -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">05 / 08</span></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px">
+  <div><p class="ey" style="margin-bottom:8px">PCB Design Portfolio</p><h2 class="td">Custom Hardware<br>Design Work</h2></div>
+  <div style="text-align:right"><p style="font-size:60px;font-weight:800;letter-spacing:-3px;line-height:1;color:var(--black)">20<span style="font-size:32px;font-weight:600;color:var(--g6)">+</span></p><p class="ey" style="margin-top:4px">Custom PCB Designs</p></div>
+</div>
+<div class="pcbg">
+  <div class="pcbc"><div class="pcbi"><img src="assets/pcb_stm32g473.png" alt="STM32G473RET6 Dev Board"/></div><div class="pcbif"><p class="pcbt">STM32G473RET6</p><p class="pcbs">Development Board - KiCad</p></div></div>
+  <div class="pcbc"><div class="pcbi"><img src="assets/pcb_stm32l433.png" alt="STM32L433CBT Dev Board"/></div><div class="pcbif"><p class="pcbt">STM32L433CBT</p><p class="pcbs">Development Board - KiCad</p></div></div>
+  <div class="pcbc"><div class="pcbi"><img src="assets/pcb_stm32f103.png" alt="STM32F103C8T6 Dev Board"/></div><div class="pcbif"><p class="pcbt">STM32F103C8T6</p><p class="pcbs">Development Board - KiCad</p></div></div>
+  <div class="pcbc"><div class="pcbi"><img src="assets/pcb_rp2040.png" alt="RP2040 Dev Board"/></div><div class="pcbif"><p class="pcbt">RP2040</p><p class="pcbs">Development Board - KiCad</p></div></div>
+</div>
+<div><p class="ey" style="margin-bottom:10px">Additional Hardware Projects</p><div class="cw"><span class="chip">LOGSX</span><span class="chip">LOGSX v2</span><span class="chip">GEOLOCX</span><span class="chip">Sound Capture Board</span><span class="chip">Solar Battery Charger</span><span class="chip">Solar Charger Module</span><span class="chip">Teseo GNSS Breakout</span><span class="chip">Handheld GPS Tracker</span><span class="chip">Auxiliary Power Board</span><span class="chip">LDO Board</span><span class="chip">BLCx</span><span class="chip">XESC v1</span><span class="chip">Dooms Day Comm</span><span class="chip">Project X</span></div></div>
+</div></div>
+
+<!-- PAGE 6: LEADERSHIP -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">06 / 08</span></div>
+<div class="l2c">
+  <div>
+    <p class="ey" style="margin-bottom:8px">Leadership and Community</p>
+    <h2 class="td" style="font-size:32px;line-height:1.15;margin-bottom:16px">IEEE Industry<br>Applications Society</h2>
+    <p class="tb">Serving as Chairperson of the IEEE IAS Student Branch Chapter at College of Engineering Kidangoor, Organized 10+ technical workshops and engineering events, coordinating events, and building a stronger engineering community among peers.</p>
+  </div>
+  <div>
+    <p class="ey" style="margin-bottom:18px">Leadership Journey</p>
+    <div class="tl">
+      <div class="tli"><div class="tld"></div><p class="tlp">2025</p><p class="tlr">Vice Chairperson</p><p class="tlo">IEEE Industry Applications Society</p><p class="tsm">College of Engineering Kidangoor. Assisted in organizing chapter events, supported technical community building, and helped run student workshops.</p></div>
+      <div class="tli"><div class="tld tlda"></div><p class="tlp">2026 to Present</p><p class="tlr tlra">Chairperson</p><p class="tlo">IEEE Industry Applications Society</p><p class="tsm">Leading the student branch chapter, organizing embedded systems workshops, Mentored 50+ students through technical workshops and hands-on sessions, and promoting a technical culture within the college.</p></div>
+    </div>
+  </div>
+</div>
+<div class="hr" style="margin-bottom:32px"></div>
+<div class="l2c">
+  <div>
+    <p class="ey" style="margin-bottom:8px">Innovation and Entrepreneurship</p>
+    <h2 class="td" style="font-size:28px;line-height:1.15;margin-bottom:12px">Innovation &amp; Entrepreneurship<br>Development Centre (IEDC)</h2>
+    <p class="tlr tlra" style="margin-bottom:14px">Creative &amp; Innovation Team Member</p>
+    <p class="tb">Actively contribute to the Creative &amp; Innovation Team of the Innovation and Entrepreneurship Development Centre (IEDC), collaborating on innovation-driven initiatives, technical events, entrepreneurship programs, and product-focused activities. Work with multidisciplinary teams to encourage creativity, problem-solving, and a culture of innovation within the campus community.</p>
+  </div>
+  <div>
+    <p class="ey" style="margin-bottom:18px">Key Contributions</p>
+    <div class="tl">
+      <div class="tli" style="padding-bottom:20px"><div class="tld" style="top:6px"></div><p class="tb" style="line-height:1.6;margin-top:-2px">Contributed to innovation and entrepreneurship initiatives.</p></div>
+      <div class="tli" style="padding-bottom:20px"><div class="tld" style="top:6px"></div><p class="tb" style="line-height:1.6;margin-top:-2px">Collaborated with cross-functional teams on creative projects and technical events.</p></div>
+      <div class="tli" style="padding-bottom:20px"><div class="tld" style="top:6px"></div><p class="tb" style="line-height:1.6;margin-top:-2px">Supported ideation, product development, and startup-oriented activities.</p></div>
+      <div class="tli" style="padding-bottom:0"><div class="tld" style="top:6px"></div><p class="tb" style="line-height:1.6;margin-top:-2px">Promoted innovation, creativity, and hands-on engineering within the student community.</p></div>
+    </div>
+  </div>
+</div>
+
+</div></div>
+
+<!-- PAGE 7: BEYOND -->
+<div class="page"><div class="pi">
+<div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">07 / 08</span></div>
+
+<div style="margin-bottom:16px">
+<p class="ey" style="margin-bottom:12px">Activities and Contributions</p>
+<div class="ag">
+  <div class="ac"><p class="act">Technical Workshops</p><p class="acd">Organized and delivered hands-on workshops on embedded systems, PCB design, and hardware development for engineering students.</p></div>
+  <div class="ac"><p class="act">Engineering Events</p><p class="acd">Planned and managed technical events, competitions, and seminars that foster practical engineering skills and industry awareness.</p></div>
+  <div class="ac"><p class="act">Team Leadership</p><p class="acd">Leading a team of student engineers, coordinating tasks, managing timelines, and building collaborative working relationships.</p></div>
+  <div class="ac"><p class="act">Mentorship</p><p class="acd">Mentoring junior students in embedded systems fundamentals, circuit design, and practical PCB development skills.</p></div>
+  <div class="ac"><p class="act">Community Building</p><p class="acd">Promoting IEEE membership, encouraging research participation, and building a strong technical culture within the institution.</p></div>
+  <div class="ac"><p class="act">Freelancing</p><p class="acd">Taking on hardware and firmware freelance projects alongside academics to gain practical, real-world engineering exposure.</p></div>
+</div>
+</div>
+<div class="hr" style="margin-bottom:16px"></div>
+
+<div style="margin-bottom:16px"><p class="ey" style="margin-bottom:8px">Complementary Skills</p><h2 class="td">Beyond Engineering</h2><p class="tb" style="max-width:650px;margin-top:8px">Engineering excellence extends beyond hardware. These disciplines inform how I approach product design, documentation, and user-facing solutions, making me a more complete engineer.</p></div>
+<div class="byg" style="margin-bottom:16px">
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><p class="bt">UI/UX Design</p></div><p class="bd">Designing intuitive interfaces with a focus on usability, visual hierarchy, and seamless user experience.</p></div>
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><p class="bt">Web Development</p></div><p class="bd">Building modern web applications with React, Next.js, and Firebase, working across the full web stack.</p></div>
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><p class="bt">Product Design</p></div><p class="bd">Thinking about products holistically from hardware form factor to software interface and overall experience.</p></div>
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><p class="bt">Branding</p></div><p class="bd">Understanding visual identity, typography, and consistency to communicate engineering products with clarity.</p></div>
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><p class="bt">Technical Documentation</p></div><p class="bd">Writing clear, structured documentation for hardware designs, firmware, and engineering processes.</p></div>
+  <div class="bcard"><div class="bcard-h"><div class="bico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="bt">Creative Problem Solving</p></div><p class="bd">Combining hardware intuition, software logic, and design thinking to find elegant, practical solutions.</p></div>
+</div>
+<div class="hr" style="margin-bottom:16px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+  <div><p class="ey" style="margin-bottom:10px">Web Stack</p><div class="cw"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Firebase</span><span class="chip">Supabase</span><span class="chip">JavaScript</span><span class="chip">HTML and CSS</span></div></div>
+  <div><p class="ey" style="margin-bottom:10px">Design</p><div class="cw"><span class="chip">Figma</span><span class="chip">Typography</span><span class="chip">Color Theory</span><span class="chip">Layout Grids</span></div></div>
+  <div><p class="ey" style="margin-bottom:10px">Workflow</p><div class="cw"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">PlatformIO</span></div></div>
+</div>
+</div></div>
+
+<!-- PAGE 8: CONTACT -->
+<div class="page conp">
+<div class="conl"><img src="assets/portrait.jpg" alt="K S Kashinadh"/><div class="conov"></div><div class="conlb"><p>K S Kashinadh</p><p>Hardware · Software · AI Engineer</p></div></div>
+<div class="conr">
+  <div>
+    <div class="rh"><span class="rn">K S Kashinadh</span><span class="rnum">08 / 08</span></div>
+    <p class="ey" style="margin-bottom:10px">Get in Touch</p>
+    <h2 class="td" style="font-size:38px;line-height:1.1;margin-bottom:28px">Let's Build<br>Something<br>Meaningful.</h2>
+    <p class="tb" style="max-width:300px">Open to internship opportunities, freelance hardware projects, research collaborations, and engineering discussions.</p>
+  </div>
+  <div>
+    <div class="ci"><div class="ciic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><p class="cil">Email</p><a href="mailto:kskashinadh4@gmail.com" class="civ">kskashinadh4@gmail.com</a></div></div>
+    <div class="ci"><div class="ciic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.55 6.82 19.79 19.79 0 011.48 2.24 2 2 0 013.46 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><p class="cil">Phone</p><a href="tel:+919072052163" class="civ">+91 9072052163</a></div></div>
+    <div class="ci"><div class="ciic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div><div><p class="cil">GitHub</p><a href="https://github.com/Kesicode" class="civ">github.com/Kesicode</a></div></div>
+    <div class="ci"><div class="ciic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><div><p class="cil">LinkedIn</p><a href="https://www.linkedin.com/in/k-s-kashinadh" class="civ">linkedin.com/in/k-s-kashinadh</a></div></div>
+    <div class="ci"><div class="ciic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="cil">Location</p><a href="https://maps.google.com/?q=HJWM%2BG8,+Pangada,+Paramattom,+Kerala+686502" target="_blank" class="civ">Kottayam, Kerala</a></div></div>
+  </div>
+  <div>
+
+    <div class="hr" style="margin:20px 0 16px"></div>
+    <p class="tc" style="text-align:center;color:var(--g8)">Thank you for your time.</p>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
