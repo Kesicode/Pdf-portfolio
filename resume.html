@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K S Kashinadh — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F172A;
+      --secondary: #475569;
+      --accent: #2563EB;
+      --accent-dark: #1D4ED8;
+      --light-bg: #F8FAFC;
+      --border: #E2E8F0;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background: #CBD5E1;
+      font-family: var(--font);
+      color: var(--primary);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .resume-container {
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+    
+    .resume-page {
+      width: 210mm;
+      height: 297mm;
+      background: white;
+      padding: 12mm 15mm;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    /* HEADER */
+    .header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    
+    .name {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+    
+    .tagline {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 9.5px;
+      color: var(--secondary);
+      font-weight: 500;
+      margin-top: 6px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--secondary);
+    }
+    
+    .contact-item:hover { color: var(--accent); }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    /* SUMMARY */
+    .summary {
+      font-size: 9.5px;
+      color: var(--secondary);
+      line-height: 1.45;
+    }
+
+    /* GRID LAYOUT FOR SKILLS & EDUCATION */
+    .top-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    /* SKILLS TABLE */
+    .skill-row {
+      display: flex;
+      font-size: 9px;
+      margin-bottom: 3px;
+    }
+    
+    .skill-label {
+      width: 105px;
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    
+    .skill-val {
+      color: var(--secondary);
+    }
+
+    /* EXPERIENCE / PROJECTS / LEADERSHIP */
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 4px;
+    }
+    
+    .entry-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .entry-subtitle {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .entry-date {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 12px;
+      font-size: 9px;
+      color: var(--secondary);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    
+    ul.bullets li {
+      margin-bottom: 2.5px;
+    }
+
+    /* COMPACT HIGHLIGHT BOX */
+    .cert-box {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 8px;
+      margin-top: 4px;
+    }
+    
+    .cert-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    
+    .cert-list {
+      font-size: 8.5px;
+      color: var(--secondary);
+      line-height: 1.35;
+    }
+
+    @media print {
+      body { background: white; }
+      .resume-container { padding: 0; }
+      .resume-page {
+        box-shadow: none;
+        page-break-after: avoid;
+        height: 297mm;
+        width: 210mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="resume-container">
+  <div class="resume-page">
+    <div>
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-top">
+          <h1 class="name">K S KASHINADH</h1>
+          <span style="font-size: 9.5px; font-weight: 600; color: var(--secondary);">Kottayam, Kerala, India</span>
+        </div>
+        <p class="tagline">Embedded Systems &amp; PCB Designer | ECE Student | IEEE IAS Chair | Startup Founder</p>
+        <div class="contact-grid">
+          <span class="contact-item">📞 +91 9072052163</span>
+          <a href="mailto:kskashinadh4@gmail.com" class="contact-item">✉ kskashinadh4@gmail.com</a>
+          <a href="https://linkedin.com/in/k-s-kashinadh" target="_blank" class="contact-item">🔗 linkedin.com/in/k-s-kashinadh</a>
+          <a href="https://github.com/Kesicode" target="_blank" class="contact-item">💻 github.com/Kesicode</a>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <p class="summary">
+        Passionate Third-Year B.Tech ECE student specializing in Embedded Systems, 20+ custom PCB designs (KiCad), robotics, and IoT hardware platforms. Founder of AgriGuard startup. Proven leader as IEEE IAS Chapter Chair and IEDC Sub-Executive Committee member. Certified in 18 Anthropic AI &amp; Claude platform courses.
+      </p>
+
+      <!-- EDUCATION & SKILLS IN 2 COLUMNS -->
+      <div class="top-two-col" style="margin-top: 4px;">
+        <div>
+          <div class="section-title">Education</div>
+          <div class="entry-header">
+            <span class="entry-title">B.Tech — Electronics &amp; Comm. Eng.</span>
+            <span class="entry-date">2024 – 2028</span>
+          </div>
+          <p style="font-size: 9px; color: var(--secondary); font-weight: 500;">College of Engineering Kidangoor, Kerala</p>
+          <p style="font-size: 8.5px; color: var(--accent); font-weight: 600; margin-top: 1px;">3rd Year Student • CGPA: 7.77</p>
+        </div>
+
+        <div>
+          <div class="section-title">Technical Skills</div>
+          <div class="skill-row"><span class="skill-label">Hardware &amp; Micro:</span><span class="skill-val">STM32, ESP32, RP2040, Arduino, 8051</span></div>
+          <div class="skill-row"><span class="skill-label">PCB &amp; Tools:</span><span class="skill-val">KiCad (20+ Boards), EasyEDA, Schematic, DRC</span></div>
+          <div class="skill-row"><span class="skill-label">Programming:</span><span class="skill-val">C, Embedded C, Python, JavaScript, C++</span></div>
+          <div class="skill-row"><span class="skill-label">Web &amp; Software:</span><span class="skill-val">React, Next.js, Firebase, Supabase, Git/GitHub</span></div>
+          <div class="skill-row"><span class="skill-label">AI &amp; Automation:</span><span class="skill-val">Anthropic AI, Claude API, MCP, Agent Skills</span></div>
+        </div>
+      </div>
+
+      <!-- ENTREPRENEURSHIP & FEATURED PROJECT -->
+      <div class="section-title">Venture &amp; Key Projects</div>
+
+      <div>
+        <div class="entry-header">
+          <span><span class="entry-title">AgriGuard</span> <span class="entry-subtitle">— Founder &amp; Lead Hardware Developer</span></span>
+          <span class="entry-date">2025 – Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Conceptualized and developing an IoT-driven wearable livestock health monitoring platform using ESP32, LoRaWAN, GPS, and cloud analytics.</li>
+          <li>Designed custom sensor breakout PCBs in KiCad for real-time biometric tracking, improving animal health diagnostics in smart agriculture.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="entry-header">
+          <span><span class="entry-title">Robotics Platforms (Line Follower &amp; Obstacle Avoidance)</span></span>
+          <span class="entry-date">Arduino / ESP32</span>
+        </div>
+        <ul class="bullets">
+          <li>Engineered autonomous path-tracking and obstacle-avoidance mobile robots integrating IR arrays, ultrasonic sensors, and OLED display telemetry.</li>
+          <li>Implemented closed-loop motor control algorithms and custom motor driver PCBs for low-latency movement decision logic.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="entry-header">
+          <span><span class="entry-title">Automated Vending Machine &amp; Multi-layer PCB Series</span></span>
+          <span class="entry-date">KiCad / Embedded C</span>
+        </div>
+        <ul class="bullets">
+          <li>Built prototype automated vending system with servo control and sensor feedback; designed 20+ development boards (STM32G473, RP2040).</li>
+        </ul>
+      </div>
+
+      <!-- LEADERSHIP & ACTIVITIES -->
+      <div class="section-title">Leadership &amp; Activities</div>
+
+      <div>
+        <div class="entry-header">
+          <span><span class="entry-title">IEEE Industry Applications Society (IAS) Chapter</span> <span class="entry-subtitle">— Chairperson</span></span>
+          <span class="entry-date">2026 – Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Leading chapter strategy, technical programs, and workshops; mentored 50+ students in hands-on embedded systems &amp; PCB development.</li>
+          <li>Progressed from Vice Chair to Chair; organized 10+ engineering seminars and cross-functional student events.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="entry-header">
+          <span><span class="entry-title">Innovation &amp; Entrepreneurship Development Centre (IEDC)</span> <span class="entry-subtitle">— Sub Executive Member</span></span>
+          <span class="entry-date">2026 – Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Coordinating campus hackathons, startup-focused workshops, and innovation challenge events bridging technology and entrepreneurship.</li>
+        </ul>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section-title">Certifications &amp; AI Expertise</div>
+      
+      <div class="cert-box">
+        <div class="cert-header">
+          <span>Anthropic — AI Fluency &amp; Claude Platform Courses (18 Completed Courses)</span>
+          <span style="color: var(--accent);">anthropic.skilljar.com (2026)</span>
+        </div>
+        <div class="cert-list">
+          <strong>AI Foundations &amp; Platform:</strong> AI Fluency Framework, Capabilities &amp; Limitations, Building with Claude API, Bedrock, Vertex AI.<br>
+          <strong>Agents &amp; MCP:</strong> Introduction to Agent Skills, Subagents, Model Context Protocol (MCP &amp; Advanced), Claude Code 101, Claude Cowork.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div style="display: flex; justify-content: space-between; font-size: 8px; color: #94A3B8; border-top: 1px solid var(--border); padding-top: 4px; margin-top: 6px;">
+      <span>K S Kashinadh — Single-Page Professional Resume</span>
+      <span>Print/Export Ready (A4 1-Page)</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
